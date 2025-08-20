@@ -18,6 +18,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import logging
+from keepalive import keep_alive
+keep_alive()
 from datetime import datetime
 
 from telegram import ParseMode, InlineKeyboardMarkup, \
