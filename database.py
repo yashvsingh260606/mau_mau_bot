@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-from import os
+import os
 from pony.orm import Database
 
 db = Database()
