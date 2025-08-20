@@ -11,8 +11,19 @@ else:
     # Local fallback
    db.bind(provider='sqlite', filename=os.getenv('UNO_DB', 'uno.sqlite3'), create_db=True)
 
-#shared_vars.py
+# shared_vars.py
+from telegram.ext import Updater
 
+# Import config for TOKEN
+import config
+
+# Create the Updater
+updater = Updater(token=config.TOKEN, use_context=True)
+
+# Dispatcher (used for handlers)
+dispatcher = updater.dispatcher
+
+# Game Manager (from before)
 class GameManager:
     def __init__(self):
         self.active_games = {}  # chat_id -> game state
@@ -43,5 +54,5 @@ class GameManager:
         return None
 
 
-# ✅ export gm as a global instance
+# Export singletons
 gm = GameManager()
