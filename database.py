@@ -18,7 +18,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
+from import os
 from pony.orm import Database
 
-# Database singleton
 db = Database()
+db.bind(provider='postgres', dsn=os.getenv("DATABASE_URL"))
